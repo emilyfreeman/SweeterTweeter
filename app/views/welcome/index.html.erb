@@ -1,13 +1,14 @@
 <div class="announcementBox">
   <% if current_user %>
-    <%#= current_user.twitter.friends.take(2) %>
     <h3>Welcome, <%= current_user.name %></h3>
     <div class="marginTop50 waves-effect waves-light btn-large cyan lighten-2">
       <%= button_to "View Profile", profile_path, method: :get %>
     </div>
-
-    <%#= current_user.twitter.followers_count %>
   <% else %>
-    <%= link_to "Login", login_path %>
+    <h3>Welcome to SweeterTweeter</h3>
+    <h5>THE BETTER WAY TO TWITTER</h5>
+    <div class="marginTop50 waves-effect waves-light btn-large cyan lighten-2">
+      <%= button_to "Login", login_path %>
+    </div>
   <% end %>
 </div>

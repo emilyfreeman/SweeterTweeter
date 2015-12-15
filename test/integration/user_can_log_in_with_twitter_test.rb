@@ -6,12 +6,24 @@ class UserCanLogInWithTwitter < ActionDispatch::IntegrationTest
     stub_omniauth
   end
 
-  test "user can log in" do
+  test "user can log in with navbar link" do
     visit root_path
 
     assert_equal 200, page.status_code
 
     click_link "Login"
+
+    assert_equal root_path, current_path
+    assert page.has_content? "Clara"
+    assert page.has_link? "Logout"
+  end
+
+  test "user can log in with button" do
+    visit root_path
+
+    assert_equal 200, page.status_code
+
+    click_button "Login"
 
     assert_equal root_path, current_path
     assert page.has_content? "Clara"
