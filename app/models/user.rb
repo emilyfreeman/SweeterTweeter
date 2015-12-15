@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
 
   def self.from_omniauth(auth_info)
-    byebug
     where(uid: auth_info[:uid]).first_or_create do |new_user|
       new_user.uid                = auth_info.uid
       new_user.name               = auth_info.extra.raw_info.name
@@ -11,7 +10,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def twitter
+  def twitter_client
     Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["twitter_consumer_api_key"]
       config.consumer_secret     = ENV["twitter_consumer_api_secret"]
@@ -21,18 +20,38 @@ class User < ActiveRecord::Base
   end
 
   def profile_photo
-    twitter.user.profile_image_uri_https(:original)
+    twitter_client.user.profile_image_uri_https(:original)
+  end
+
+  def follower_count
+    twitter_client.user.followers_count
+  end
+
+  def favorites_count
+    twitter_client.user.favourites_count
+  end
+
+  def following_count
+    twitter_client.user.friends_count
+  end
+
+  def tweet_count
+    twitter_client.user.statuses_count
   end
 
   def name
-    # twitter.user.profile_image_uri_https(:original)
+    twitter_client.user.name
   end
 
   def handle
-    # twitter.user.profile_image_uri_https(:original)
+    twitter_client.user.screen_name
   end
 
   def bio
+    twitter_client.user.description
+  end
 
+  def timeline
+    twitter_client.home_timeline
   end
 end
