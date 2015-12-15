@@ -1,6 +1,6 @@
 <div class="announcementBox">
   <% if current_user %>
-    <h3>Welcome, <%= current_user.name %></h3>
+    <h3>Welcome, <%#= current_user.name %></h3>
     <div class="marginTop50 waves-effect waves-light btn-large cyan lighten-2">
       <%= button_to "View Profile", profile_path, method: :get %>
     </div>
