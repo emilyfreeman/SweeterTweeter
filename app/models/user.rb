@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def twitter
-    client = Twitter::REST::Client.new do |config|
+    Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV["twitter_consumer_api_key"]
       config.consumer_secret     = ENV["twitter_consumer_api_secret"]
       config.access_token        = ENV["twitter_access_token"]

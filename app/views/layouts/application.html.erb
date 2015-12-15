@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="cyan lighten-4">
   <nav>
     <div class="nav-wrapper cyan lighten-2">
       <div>
@@ -15,7 +15,6 @@
       </div>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if current_user %>
-          <%#= current_user.twitter.friends.take(2) %>
           <%= link_to "Logout", logout_path %>
         <% else %>
           <%= link_to "Login", login_path %>
@@ -24,7 +23,7 @@
     </div>
   </nav>
 
-  <div class="container thinFont">
+  <div class="container">
 
     <%= yield %>
 
