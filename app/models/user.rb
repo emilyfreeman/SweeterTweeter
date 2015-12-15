@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
       new_user.oauth_token_secret = auth_info.credentials.secret
     end
   end
+
+  def twitter
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = ENV["twitter_consumer_api_key"]
+      config.consumer_secret     = ENV["twitter_consumer_api_secret"]
+      config.access_token        = ENV["twitter_access_token"]
+      config.access_token_secret = ENV["twitter_access_token_secret"]
+    end
+  end
 end
