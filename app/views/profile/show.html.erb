@@ -1,38 +1,38 @@
 <div class="row">
-  <!-- http://www.realtimearts.net/data/images/art/46/4640_profile_nilssonpolias.jpg -->
+  <!-- cahnge won't shop uo -->
   <div class="col s4">
-    <img id="profilePhoto" src='<%= current_user.profile_photo %>'>
-    <h4 class="zeroMarginBottom"><%= current_user.name %></h4>
-    <p class="zeroMargin lightGreyText">@<%= current_user.handle %></p>
-    <p><%= current_user.bio %></p>
+    <img id="profilePhoto" src='<%#= current_user.profile_photo %>'>
+    <h4 class="zeroMarginBottom"><%#= current_user.name %></h4>
+    <p class="zeroMargin lightGreyText">@<%#= current_user.handle %></p>
+    <p><%#= current_user.bio %></p>
   </div>
 
   <div class="col s7 offset-s1" id="profileMain">
       <div id="statsCounter">
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p><h5 class="zeroMargin"><%= current_user.favorites_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p><h5 class="zeroMargin"><%#= current_user.favorites_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p><h5 class="zeroMargin"><%= current_user.tweet_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p><h5 class="zeroMargin"><%#= current_user.tweet_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Following</strong></p><h5 class="zeroMargin"><%= current_user.following_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Following</strong></p><h5 class="zeroMargin"><%#= current_user.following_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Followers</strong></p><h5 class="zeroMargin"><%= current_user.follower_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Followers</strong></p><h5 class="zeroMargin"><%#= current_user.follower_count %></h5>
         </div>
       </div>
 
       <div id="recentTweets">
         <% current_user.timeline.each do |tweet| %>
           <div class="">
-            <div class="col 2"><img class="timelinePhoto" src='<%= tweet.user.profile_image_uri %>'></div>
+            <div class="col 2"><img class="timelinePhoto" src='<%#= tweet.user.profile_image_uri %>'></div>
             <div class="col 8 width80">
-              <p class="timelineTweetText"><%= tweet.user.name %></p>
-              <p><%= tweet.text %></p>
+              <p class="timelineTweetText"><%#= tweet.user.name %></p>
+              <p><%#= tweet.text %></p>
             </div>
           </div>
         <% end %>
