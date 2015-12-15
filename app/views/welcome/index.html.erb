@@ -1,20 +1,6 @@
-<nav>
-  <div class="nav-wrapper">
-    <a href="/" class="brand-logo">SweeterTweeter</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if current_user %>
-        <%#= current_user.twitter.friends.take(2) %>
-        <%= link_to "Logout", logout_path %>
-      <% else %>
-        <%= link_to "Login", login_path %>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-
 <% if current_user %>
   <%#= current_user.twitter.friends.take(2) %>
-  <p>Welcome, </p><%= current_user.name %>
+  <h2>Welcome, <%= current_user.name %></h2>
 <% else %>
   <%= link_to "Login", login_path %>
 <% end %>
