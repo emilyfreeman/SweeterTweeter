@@ -1,1 +1,31 @@
-<%= @user.name %>
+<div class="row">
+  <!-- http://www.realtimearts.net/data/images/art/46/4640_profile_nilssonpolias.jpg -->
+  <div class="col s4">
+    <img id="profilePhoto" src='<%= current_user.profile_photo %>'>
+    <h4 class="zeroMarginBottom">Emily Dowdle</h4>
+    <p class="zeroMargin lightGreyText">@editingemily</p>
+    <p>Here's some stuff about me. I'm awesome.</p>
+  </div>
+
+  <div class="col s7 offset-s1" id="profileMain">
+      <div id="statsCounter">
+        <div class="col s3 centerText">
+          <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p><h5 class="zeroMargin">35</h5>
+        </div>
+
+        <div class="col s3 centerText">
+          <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p><h5 class="zeroMargin">345</h5>
+        </div>
+
+        <div class="col s3 centerText">
+          <p class="lightGreyText zeroMargin"><strong>Following</strong></p><h5 class="zeroMargin">8766</h5>
+        </div>
+
+        <div class="col s3 centerText">
+          <p class="lightGreyText zeroMargin"><strong>Followers</strong></p><h5 class="zeroMargin">435</h5>
+        </div>
+      </div>
+  </div>
+
+
+</div>

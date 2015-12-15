@@ -1,9 +1,13 @@
+.centerText{
+  text-align: center;
+}
 .thinFont {
   font-weight: 200;
 }
 .sideMargin15 {
   margin: 0 15px;
 }
+
 .announcementBox {
   background-color: white;
   text-align: center;
@@ -13,6 +17,38 @@
   padding: 30px;
   margin: 50px 0;
 }
+.lightGreyText {
+  color: #8899a6;
+}
+.zeroMargin {
+  margin: 0;
+}
+.zeroMarginBottom {
+  margin-bottom: 0;
+}
+#profileMain {
+  margin-top: 150px;
+}
+
+#statsCounter {
+  border-top: 1px solid #8899a6;
+  border-bottom: 1px solid #8899a6;
+  height: 70px;
+  padding: 10px;
+}
+
+#profileSidebar {
+  width: 30%;
+  margin-right: 5%;
+}
+#profilePhoto {
+  background-color: white;
+  width: 200px;
+  height: 202px;
+  border-radius: 25px;
+  margin: 50px 50px 0 0;
+}
+
 .marginTop50 {
   margin-top: 50px;
 }
