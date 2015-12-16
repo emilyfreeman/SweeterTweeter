@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   def self.from_omniauth(auth_info)
     where(uid: auth_info[:uid]).first_or_create do |new_user|
       new_user.uid                = auth_info.uid
@@ -10,48 +9,55 @@ class User < ActiveRecord::Base
     end
   end
 
-  def twitter_client
-    Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV["twitter_consumer_api_key"]
-      config.consumer_secret     = ENV["twitter_consumer_api_secret"]
-      config.access_token        = ENV["twitter_access_token"]
-      config.access_token_secret = ENV["twitter_access_token_secret"]
-    end
+  def twitter_service
+    TwitterService.new( self.oauth_token, self.oauth_token_secret )
+  end
+
+  def favorite_tweet(tweet)
+    twitter_service.client.favorite(tweet)
   end
 
   def profile_photo
-    twitter_client.user.profile_image_uri_https(:original)
+    twitter_service.client.user.profile_image_uri_https(:original)
   end
 
   def follower_count
-    twitter_client.user.followers_count
+    twitter_service.client.user.followers_count
   end
 
   def favorites_count
-    twitter_client.user.favourites_count
+    twitter_service.client.user.favourites_count
   end
 
   def following_count
-    twitter_client.user.friends_count
+    twitter_service.client.user.friends_count
   end
 
   def tweet_count
-    twitter_client.user.statuses_count
+    twitter_service.client.user.statuses_count
   end
 
   def name
-    twitter_client.user.name
+    twitter_service.client.user.name
   end
 
   def handle
-    twitter_client.user.screen_name
+    twitter_service.client.user.screen_name
   end
 
   def bio
-    twitter_client.user.description
+    twitter_service.client.user.description
   end
 
   def timeline
-    twitter_client.home_timeline
+    twitter_service.client.home_timeline
+  end
+
+  def favorite(tweet)
+    twitter_service.client.favorite(tweet)
+  end
+
+  def tweet(tweet)
+    twitter_service.client.update(tweet)
   end
 end

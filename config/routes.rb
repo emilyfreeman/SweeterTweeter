@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
   resources :welcome, only: [:index]
-
+  resources :favorites
+  resource :status, controller: :status, only: [:create]
   get '/auth/twitter', as: :login
   get '/auth/twitter/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
   get 'profile', to: 'profile#show'
-
-  # https://api.twitter.com/1.1/account/verify_credentials.json
-
-
 end
