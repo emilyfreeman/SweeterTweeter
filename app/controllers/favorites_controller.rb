@@ -1,7 +1,6 @@
 class FavoritesController < ApplicationController
   def create
-    binding.pry
-    tweet_to_fave = Twitter::Tweet.new(id: params[:tweet_id])
-    current_user.favorite_tweet(tweet_to_fave)
+    TwitterService.new(current_user.oauth_token, current_user.oauth_token_secret).client.favorite(params[:tweet_id])
+    redirect_to profile_path
   end
 end

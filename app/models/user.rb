@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def twitter_service
-    TwitterService.new( self.oauth_token, self.oauth_token_secret )
+    TwitterService.new(self.oauth_token, self.oauth_token_secret)
   end
 
   def favorite_tweet(tweet)

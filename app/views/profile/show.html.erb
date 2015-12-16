@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col s4">
-    <img id="profilePhoto" src='<%= current_user.profile_photo %>'>
-    <h4 class="zeroMarginBottom"><%= current_user.name %></h4>
-    <p class="zeroMargin lightGreyText">@<%= current_user.handle %></p>
+    <img id="profilePhoto" src='<%#= current_user.profile_photo %>'>
+    <h4 class="zeroMarginBottom"><%#= current_user.name %></h4>
+    <p class="zeroMargin lightGreyText">@<%#= current_user.handle %></p>
     <p><%= current_user.bio %></p>
   </div>
 
@@ -10,26 +10,28 @@
 
       <div id="statusForm">
         <%= form_tag("/status", method: "post") do %>
-          <%= text_area_tag(:tweet, "", size: "200x200") %>
-          <%= submit_tag("Tweet") %>
+          <%= text_area_tag(:tweet, "", size: "800x80") %>
+          <div class="marginTop50 waves-effect waves-light btn cyan lighten-2">
+            <%= submit_tag "Tweet" %>
+          </div>
         <% end %>
       </div>
 
       <div id="statsCounter">
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p><h5 class="zeroMargin"><%= current_user.favorites_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p><h5 class="zeroMargin"><%#= current_user.favorites_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p><h5 class="zeroMargin"><%= current_user.tweet_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p><h5 class="zeroMargin"><%#= current_user.tweet_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Following</strong></p><h5 class="zeroMargin"><%= current_user.following_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Following</strong></p><h5 class="zeroMargin"><%#= current_user.following_count %></h5>
         </div>
 
         <div class="col s3 centerText">
-          <p class="lightGreyText zeroMargin"><strong>Followers</strong></p><h5 class="zeroMargin"><%= current_user.follower_count %></h5>
+          <p class="lightGreyText zeroMargin"><strong>Followers</strong></p><h5 class="zeroMargin"><%#= current_user.follower_count %></h5>
         </div>
       </div>
 
@@ -40,7 +42,7 @@
             <div class="col 8 width80">
               <p class="timelineTweetText"><%= tweet.user.name %></p>
               <p><%= tweet.text %></p>
-              <!-- <%= link_to "Favorite", favorites_path(tweet_id: tweet.id), method: :post %> -->
+              <%= link_to "Favorite", favorites_path(tweet_id: tweet.id), method: :post %>
             </div>
           </div>
         <% end %>
