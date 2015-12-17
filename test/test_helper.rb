@@ -5,10 +5,12 @@ require "mocha/mini_test"
 require 'minitest/stub_any_instance'
 require 'webmock'
 require 'vcr'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 class ActiveSupport::TestCase
   fixtures :all
-  
+
   VCR.configure do |config|
     config.cassette_library_dir = 'test/cassettes'
     config.hook_into :webmock
