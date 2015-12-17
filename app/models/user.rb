@@ -13,36 +13,40 @@ class User < ActiveRecord::Base
     @twitter_service ||= TwitterService.new(self).client
   end
 
+  def twitter_user
+    @twitter_user ||= twitter_service.user
+  end
+
   def profile_photo
-    twitter_service.user.profile_image_uri_https(:original)
+    twitter_user.profile_image_uri_https(:original)
   end
 
   def follower_count
-    twitter_service.user.followers_count
+    twitter_user.followers_count
   end
 
   def favorites_count
-    twitter_service.user.favourites_count
+    twitter_user.favourites_count
   end
 
   def following_count
-    twitter_service.user.friends_count
+    twitter_user.friends_count
   end
 
   def tweet_count
-    twitter_service.user.statuses_count
+    twitter_user.statuses_count
   end
 
   def name
-    twitter_service.user.name
+    twitter_user.name
   end
 
   def handle
-    twitter_service.user.screen_name
+    twitter_user.screen_name
   end
 
   def bio
-    twitter_service.user.description
+    twitter_user.description
   end
 
   def timeline
