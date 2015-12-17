@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
+gem 'vcr'
+gem 'webmock'
 gem 'minitest-stub_any_instance'
 gem 'pry'
-gem 'vcr'
 gem 'twitter'
 gem 'figaro'
 gem 'omniauth-twitter'

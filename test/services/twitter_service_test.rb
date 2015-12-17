@@ -2,15 +2,19 @@ class TwitterServiceTest < ActiveSupport::TestCase
   attr_reader :service
 
   def setup
-    @service = TwitterService.new(ENV["test_oauth_token"], ENV["test_oauth_token_secret"])
-    byebug
+    VCR.use_cassette("twitter_service#setup") do
+      stub_user
+      @client = stub_user
+    end
   end
 
-  test "client" do
-    VCR.use_cassette("twitter_service#client") do
-      client = service.client
+  test "twitter response" do
+    VCR.use_cassette("twitter_service#response") do
+      response = TwitterService.new(@client.oauth_token, @client.oauth_token_secret).client
 
-      assert_equal "", client.user.profile_image_uri_https
+      assert_equal "Emily Freeman", response.user.name
+      assert_equal "emily_freeman", response.user.screen_name
+      assert_equal 18, response.user.statuses_count
     end
   end
 end
