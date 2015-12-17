@@ -10,7 +10,7 @@ class TwitterServiceTest < ActiveSupport::TestCase
 
   test "twitter response" do
     VCR.use_cassette("twitter_service#response") do
-      response = TwitterService.new(@client.oauth_token, @client.oauth_token_secret).client
+      response = TwitterService.new(@client).client
 
       assert_equal "Emily Freeman", response.user.name
       assert_equal "emily_freeman", response.user.screen_name

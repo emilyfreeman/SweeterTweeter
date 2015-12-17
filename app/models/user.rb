@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   end
 
   def twitter_service
-    @twitter_service ||= TwitterService.new(self.oauth_token, self.oauth_token_secret).client
+    @twitter_service ||= TwitterService.new(self).client
   end
 
   def profile_photo

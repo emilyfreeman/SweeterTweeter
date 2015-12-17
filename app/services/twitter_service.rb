@@ -1,8 +1,8 @@
 class TwitterService
 
-  def initialize(oauth_token, oauth_token_secret)
-    @oauth_token = oauth_token
-    @oauth_token_secret = oauth_token_secret
+  def initialize(user)
+    @oauth_token = user.oauth_token
+    @oauth_token_secret = user.oauth_token_secret
   end
 
   def client
