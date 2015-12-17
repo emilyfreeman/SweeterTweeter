@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "client tweet count" do
     VCR.use_cassette("twitter_service#tweet_count") do
-      assert_equal 17, @client.tweet_count
+      assert_equal 19, @client.tweet_count
     end
   end
 
