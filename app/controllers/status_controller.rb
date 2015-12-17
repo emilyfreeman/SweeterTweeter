@@ -1,5 +1,4 @@
 class StatusController < ApplicationController
-
   def new
     @tweet = Twitter::Tweet.new
   end
