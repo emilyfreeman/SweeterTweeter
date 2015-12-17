@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'vcr'
-gem 'webmock'
-gem 'minitest-stub_any_instance'
 gem 'pry'
 gem 'twitter'
 gem 'figaro'
@@ -35,6 +32,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
+  gem 'minitest-stub_any_instance'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
