@@ -1,6 +1,7 @@
 require "test_helper"
 class UserCanLogInWithTwitter < ActionDispatch::IntegrationTest
   include Capybara::DSL
+  
   def setup
     Capybara.app = ApiCurious::Application
     stub_omniauth

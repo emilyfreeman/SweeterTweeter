@@ -1,0 +1,16 @@
+<div id="recentTweets">
+  <% current_user.timeline.each do |tweet| %>
+    <div class="">
+      <div class="col 2"><img class="timelinePhoto" src='<%= tweet.user.profile_image_uri %>'></div>
+      <div class="col 8 width80">
+        <p class="timelineTweetText"><%= tweet.user.name %></p>
+        <p><%= tweet.text %></p>
+        <% if tweet.favorited? %>
+          <p>Favorited!</p>
+        <% else %>
+          <i class="material-icons"><%= link_to "thumb_up", favorites_path(tweet_id: tweet.id), method: :post %></i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

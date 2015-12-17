@@ -1,0 +1,21 @@
+<div id="statsCounter">
+  <div class="col s3 centerText">
+    <p class="lightGreyText zeroMargin"><strong>Favorites</strong></p>
+    <h5 class="zeroMargin"><%= current_user.favorites_count %></h5>
+  </div>
+
+  <div class="col s3 centerText">
+    <p class="lightGreyText zeroMargin"><strong>SweetTweets</strong></p>
+    <h5 class="zeroMargin"><%= current_user.tweet_count %></h5>
+  </div>
+
+  <div class="col s3 centerText">
+    <p class="lightGreyText zeroMargin"><strong>Following</strong></p>
+    <h5 class="zeroMargin"><%= current_user.following_count %></h5>
+  </div>
+
+  <div class="col s3 centerText">
+    <p class="lightGreyText zeroMargin"><strong>Followers</strong></p>
+    <h5 class="zeroMargin"><%= current_user.follower_count %></h5>
+  </div>
+</div>
